@@ -1,7 +1,6 @@
 /*
  * stm32f103c6_GPIO_driver.c
  *
- *  Created on: Oct 12, 2024
  *      Author: Mohamed_Ayman
  */
 
@@ -11,8 +10,8 @@
 /*==================================================================================================
  * @Fn 				-Get_CRLH_Position
  * @brief 			-get the position number pin in register
- * @param [in ]		-PinNumber: select pin from register from 0 >>> 15 @ref GPIO_PINS_define
- * @param [out ]	-NONE
+ * @param [in ]			-PinNumber: select pin from register from 0 >>> 15 @ref GPIO_PINS_define
+ * @param [out ]		-NONE
  * @retval 			-return the position pin number
  * Note 			-NONE
  *==================================================================================================
@@ -95,10 +94,10 @@ uint8_t Get_CRLH_Position(uint16_t PinNumber)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_Init
  * @brief 			-Initializes the GPIOx PINy according to specified parameters in the PinConfig
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-PinConfig: pointer to a GPIO_PINConfig_t structure that contains
- * 					 the configuration information for the specified GPIO peripheral.
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-PinConfig: pointer to a GPIO_PINConfig_t structure that contains
+ * 				 the configuration information for the specified GPIO peripheral.
+ * @param [out ]		-NONE
  * @retval 			-NONE
  * Note 			-stm32f103c6 MCU has GPIO A, B, C, D, E Modules
  * 					 But lQFP48 package has only GPIO A, B, part of C and D expected as external pins from the MCU
@@ -162,8 +161,8 @@ void MCAL_GPIO_Init(GPIO_Typedef *GPIOx, GPIO_PINConfig_t *PinConfig)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_DeInit
  * @brief 			-Reset all the GPIO Registers
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [out ]		-NONE
  * @retval 			-NONE
  * Note 			-NONE
  *==================================================================================================
@@ -218,9 +217,9 @@ void MCAL_GPIO_DeInit(GPIO_Typedef *GPIOx)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_ReadPin
  * @brief 			-Read specific PIN
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-PinNumber: set pin number according @ref GPIO_PINS_define
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-PinNumber: set pin number according @ref GPIO_PINS_define
+ * @param [out ]		-NONE
  * @retval 			-the input pin value (two values based on @ref GPIO_PIN_State)
  * Note 			-NONE
  *==================================================================================================
@@ -246,8 +245,8 @@ uint8_t MCAL_GPIO_ReadPin(GPIO_Typedef *GPIOx, uint16_t PinNumber)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_ReadPort
  * @brief 			-Read the input PORT
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [out ]		-NONE
  * @retval 			-the input port value
  * Note 			-NONE
  *==================================================================================================
@@ -266,10 +265,10 @@ uint16_t MCAL_GPIO_ReadPort(GPIO_Typedef *GPIOx)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_WritePin
  * @brief 			-Write on the specific pin
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-PinNumber: specifies (write) the port pin bit .Set by @ref GPIO_PIN_State
- * @param [in ]		-value: Pin value
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-PinNumber: specifies (write) the port pin bit .Set by @ref GPIO_PIN_State
+ * @param [in ]			-value: Pin value
+ * @param [out ]		-NONE
  * @retval 			-NONE
  * Note 			-NONE
  *==================================================================================================
@@ -304,9 +303,9 @@ void MCAL_GPIO_WritePin(GPIO_Typedef *GPIOx, uint16_t PinNumber, uint8_t value)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_WritePort
  * @brief 			-Write on the output port
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-value: port value
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-value: port value
+ * @param [out ]		-NONE
  * @retval 			-NONE
  * Note 			-NONE
  *==================================================================================================
@@ -320,9 +319,9 @@ void MCAL_GPIO_WritePort(GPIO_Typedef *GPIOx, uint16_t value)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_TogglePin
  * @brief 			-Toggle the specified GPIO pin
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-PinNumber: specifies the pin bit. set by @ref GPIO_PIN_State
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-PinNumber: specifies the pin bit. set by @ref GPIO_PIN_State
+ * @param [out ]		-NONE
  * @retval 			-NONE
  * Note 			-NONE
  *==================================================================================================
@@ -336,9 +335,9 @@ void MCAL_GPIO_TogglePin(GPIO_Typedef *GPIOx, uint16_t PinNumber)
 /*==================================================================================================
  * @Fn 				-MCAL_GPIO_LockPin
  * @brief 			-The locking mechanism pin allow the IO configuration to be frozen
- * @param [in ]		-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
- * @param [in ]		-PinNumber: specifies the pin bit. set by @ref GPIO_PIN_State
- * @param [out ]	-NONE
+ * @param [in ]			-GPIOx: where x can be (A...E depending on device used) to select the GPIO peripheral
+ * @param [in ]			-PinNumber: specifies the pin bit. set by @ref GPIO_PIN_State
+ * @param [out ]		-NONE
  * @retval 			-OK if pin Config is locked or error if pin not locked defined @ref GPIO_lock_state
  * Note 			-NONE
  *==================================================================================================
